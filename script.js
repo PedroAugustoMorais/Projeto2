@@ -15,7 +15,7 @@ function jogoMedia() {
 
       if (entrada.trim() === "" || entrada === null || isNaN(numero)) {
         alert("Valor inválido. Digite um número.");
-        i--; // repetir a rodada
+        i--; 
         continue;
       }
 
