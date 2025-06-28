@@ -1,29 +1,62 @@
+function jogoMedia() {
+  alert("Bem-vindo ao Jogo da Média!");
 
-function exemplo1() {
-  let num1 = parseInt(prompt("Digite um número para elevar ao quadrado:"));
-  if (!isNaN(num1)) {
-    alert(`O quadrado de ${num1} é ${num1 ** 2}`);
+  let quantidade = prompt("Quantos números você quer digitar?");
+  quantidade = Number(quantidade);
+
+  if (quantidade <= 0 || quantidade === null || quantidade === "" || typeof quantidade !== "number") {
+    alert("Quantidade inválida. Tente novamente com um número maior que zero.");
   } else {
-    alert("Por favor, digite um número válido!");
+    let soma = 0;
+
+    for (let i = 1; i <= quantidade; i++) {
+      let entrada = prompt(`Digite o ${i}º número:`);
+      let numero = Number(entrada);
+
+      if (entrada.trim() === "" || entrada === null || isNaN(numero)) {
+        alert("Valor inválido. Digite um número.");
+        i--; // repetir a rodada
+        continue;
+      }
+
+      soma += numero;
+    }
+
+    let media = soma / quantidade;
+
+    alert(`A média calculada entre os ${quantidade} números digitados é: ${media.toFixed(2)}`);
   }
 }
 
+function iniciarJogo() {
+  alert("Bem-vindo ao Jogo da Soma!");
+  let num1 = parseInt(prompt("Digite o primeiro número inteiro:"));
+  let num2 = parseInt(prompt("Digite o segundo número inteiro:"));
 
-function exemplo2() {
-  let palavra = prompt("Digite uma palavra para saber o número de letras:");
-  if (palavra) {
-    alert(`A palavra "${palavra}" tem ${palavra.length} letras.`);
-  } else {
-    alert("Você não digitou nada!");
-  }
+  let resultado = num1 + num2;
+  alert("A soma dos números é: " + resultado);
 }
 
 
-function exemplo3() {
-  let resposta = confirm("Você gosta de programação?");
-  if (resposta) {
-    alert("Que ótimo! Continue aprendendo e se divertindo.");
-  } else {
-    alert("Tudo bem, talvez um dia você goste!");
+function jogoNumeroSecreto() {
+  alert('Seja bem-vindo ao jogo do numero Secreto!');
+
+  let numeroSecreto = 5; 
+  console.log(numeroSecreto); 
+
+  let chute;
+  let tentativas = 0;
+
+  while (chute != numeroSecreto) {
+    chute = parseInt(prompt('Escolha um número entre 1 e 10'));
+    tentativas++;
+
+    if (chute == numeroSecreto) {
+      alert(`Parabéns! Você acertou o número secreto ${numeroSecreto} na tentativa ${tentativas}.`);
+    } else if (chute > numeroSecreto) {
+      alert(`O número secreto é menor que ${chute}. Tente novamente.`);
+    } else {
+      alert(`O número secreto é maior que ${chute}. Tente novamente.`);
+    }
   }
 }
